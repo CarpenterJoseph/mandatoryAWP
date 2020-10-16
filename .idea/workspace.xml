@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af6bd596-aaa5-4619-a029-69bc67acf828" name="Default Changelist" comment="" />
+    <list default="true" id="af6bd596-aaa5-4619-a029-69bc67acf828" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/server/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/client/package.json" />
@@ -31,6 +36,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602838294839</updated>
       <workItem from="1602838296802" duration="1997000" />
+      <workItem from="1602842159375" duration="132000" />
     </task>
     <servers />
   </component>
