@@ -8,8 +8,8 @@ function App() {
     async function getData() {
       const url = `${API_URL}/hello`;
       const response = await fetch(url);
-      //const data = await response.json();
-      //setData(data.msg);
+      const data = await response.json();
+      setData(data.msg);
     }
     getData();
   }, []); 
