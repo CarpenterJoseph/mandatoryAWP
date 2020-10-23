@@ -18,6 +18,14 @@ function App() {
     <>
       <h1>MERN App!</h1>
       <p>Data from server: {data}</p>
+
+      <form>
+        <label for="fname">Name</label>
+        <input type="text" id="fname" name="fname"/>
+        <label htmlFor="fcontent">Content</label>
+        <input type="text" id="fcontent" name="fcontent"/>
+      </form>
+
     </>
   );
 }

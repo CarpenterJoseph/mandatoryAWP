@@ -1,6 +1,14 @@
 module.exports = (mongoose) => {
+    const answerSchema = new mongoose.Schema({
+        name: String,
+        content: String,
+        score: Number
+    })
+
     const questionSchema = new mongoose.Schema({
-        name: String
+        name: String,
+        content: String,
+        answers: [answerSchema]
     });
 
     const questionModel = mongoose.model('question', questionSchema);
