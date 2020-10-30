@@ -1,14 +1,12 @@
 module.exports = (mongoose) => {
-    const answerSchema = new mongoose.Schema({
-        name: String,
-        content: String,
-        score: Number
-    })
 
     const questionSchema = new mongoose.Schema({
         name: String,
         content: String,
-        answers: [answerSchema]
+        answers: [{
+            content: String,
+            score: Number
+        }]
     });
 
     const questionModel = mongoose.model('question', questionSchema);
@@ -31,8 +29,11 @@ module.exports = (mongoose) => {
         }
     }
 
-    async function createQuestion(text) {
-        let question = new questionModel({name: text});
+    async function createQuestion(name, content) {
+        let question = new questionModel({
+            name: name,
+            content: content
+        });
         return question.save();
     }
 

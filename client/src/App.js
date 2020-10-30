@@ -1,33 +1,45 @@
 import React, {useEffect, useState} from 'react';
+import Questions from "./Questions";
 const API_URL = process.env.REACT_APP_API;
 
 function App() {
-  const [data, setData] = useState("No data :(");
-  
-  useEffect(() => {
-    async function getData() {
-      const url = `${API_URL}/hello`;
-      const response = await fetch(url);
-      const data = await response.json();
-      setData(data.msg);
-    }
-    getData();
-  }, []); 
+	const [data, setData] = useState("No data :(");
 
-  return (
-    <>
-      <h1>MERN App!</h1>
-      <p>Data from server: {data}</p>
+	useEffect(() => {
+		async function getData() {
+			const url = `${API_URL}/hello`;
+			const response = await fetch(url);
+			const data = await response.json();
+			setData(data.msg);
+		}
+		getData();
+	}, []);
 
-      <form>
-        <label for="fname">Name</label>
-        <input type="text" id="fname" name="fname"/>
-        <label htmlFor="fcontent">Content</label>
-        <input type="text" id="fcontent" name="fcontent"/>
-      </form>
+	async function addQuestion(name, content) {
+		const questionsURL = `${API_URL}/questions`
+		const question = {
+			name: name,
+			content: content
+		}
+		const response = await fetch(questionsURL, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(question)
+		})
+		const data = await response.json()
 
-    </>
-  );
+		console.log(data)
+	}
+
+	return (
+		<>
+			<h1>MERN App!</h1>
+			<p>Data from server: {data}</p>
+			<Questions addQuestion={addQuestion}></Questions>
+		</>
+	);
 }
 
 export default App;
