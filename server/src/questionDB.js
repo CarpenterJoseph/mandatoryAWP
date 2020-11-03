@@ -10,6 +10,7 @@ module.exports = (mongoose) => {
     });
 
     const questionModel = mongoose.model('question', questionSchema);
+    mongoose.set('useFindAndModify', false);
 
     async function getQuestions() {
         try {
@@ -37,24 +38,29 @@ module.exports = (mongoose) => {
         return question.save();
     }
 
-    async function bootstrap(count = 10) {
-        let l = (await getQuestions()).length;
-        console.log("question collection size:", l);
-
-        if (l === 0) {
-            let promises = [];
-            for (let i = 0; i < count; i++) {
-                let newQuestion = new questionModel({name: `question number ${i}`});
-                promises.push(newQuestion.save());
-            }
-            return Promise.all(promises);
+    async function addAnswer(id, content){
+        const answer = {
+            content: content,
+            score: 0
         }
+        return questionModel.findOneAndUpdate(
+            {_id: id},
+            {$push: {answers: answer}});
+    }
+
+    async function incrScore(questionID, answerID) {
+        return await questionModel.update(
+            { _id: questionID, 'answers._id': answerID },
+            { $inc: { 'answers.$.score': 1 } },
+            { new: true }
+        );
     }
 
     return {
         getQuestions,
         getQuestion,
         createQuestion,
-        bootstrap
+        addAnswer,
+        incrScore
     }
 }

@@ -16,7 +16,6 @@ async function createServer() {
   await mongoose.connect(MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true})
 
   const questionDB = require('./questionDB')(mongoose)
-  await questionDB.bootstrap()
 
   const routes = require("./routes")(questionDB);
 

@@ -1,27 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import Questions from "./Questions";
+import {Router} from "@reach/router";
+import Question from "./Question";
 const API_URL = process.env.REACT_APP_API;
 
 function App() {
-	const [data, setData] = useState("No data :(");
+	const [questionData, setQuestionData] = useState([]);
 
 	useEffect(() => {
 		async function getData() {
-			const url = `${API_URL}/hello`;
+			const url = `${API_URL}/questions`;
 			const response = await fetch(url);
 			const data = await response.json();
-			setData(data.msg);
+			setQuestionData(data);
 		}
 		getData();
 	}, []);
 
 	async function addQuestion(name, content) {
-		const questionsURL = `${API_URL}/questions`
+		const url = `${API_URL}/questions`
 		const question = {
 			name: name,
 			content: content
 		}
-		const response = await fetch(questionsURL, {
+		const response = await fetch(url, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -29,15 +31,47 @@ function App() {
 			body: JSON.stringify(question)
 		})
 		const data = await response.json()
+	}
 
-		console.log(data)
+	async function addAnswer(questionID, content){
+		const url = `${API_URL}/questions/answers`
+		const answer = {
+			questionID: questionID,
+			content: content
+		}
+		const response = await fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(answer)
+		})
+		const data = await response.json()
+	}
+
+	async function incrScore(questionID, answerID){
+		const url = `${API_URL}/questions/answers/incr`
+		const info = {
+			questionID: questionID,
+			answerID: answerID
+		}
+		const response = await fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(info)
+		})
+		const data = await response.json()
 	}
 
 	return (
 		<>
 			<h1>MERN App!</h1>
-			<p>Data from server: {data}</p>
-			<Questions addQuestion={addQuestion}></Questions>
+			<Router>
+				<Questions path='/' questionData={questionData} addQuestion={addQuestion}/>
+				<Question path='/:id' questionData={questionData} addAnswer={addAnswer} incrScore={incrScore}/>
+			</Router>
 		</>
 	);
 }

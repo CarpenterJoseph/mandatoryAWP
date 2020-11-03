@@ -20,10 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af6bd596-aaa5-4619-a029-69bc67acf828" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/AddQuestion.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Questions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/AddAnswer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/ListQuestion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Question.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Questions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/questionDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/questionDB.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server.js" afterDir="false" />
@@ -82,7 +84,8 @@
       <workItem from="1602838296802" duration="1997000" />
       <workItem from="1602842159375" duration="1501000" />
       <workItem from="1603435189452" duration="12973000" />
-      <workItem from="1604044364309" duration="5177000" />
+      <workItem from="1604044364309" duration="22280000" />
+      <workItem from="1604400356146" duration="6378000" />
     </task>
     <servers />
   </component>
@@ -102,10 +105,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1178" y="229" key="#JavaScript" timestamp="1603446971254">
+    <state x="1178" y="229" key="#JavaScript" timestamp="1604079552692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1178" y="229" key="#JavaScript/0.0.1920.1040@0.0.1920.1040" timestamp="1603446971254" />
+    <state x="1178" y="229" key="#JavaScript/0.0.1920.1040@0.0.1920.1040" timestamp="1604079552692" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604401116253">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604401116253" />
     <state width="936" height="344" key="GridCell.Tab.0.bottom" timestamp="1603785003415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -158,6 +165,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1147" y="119" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603446954764" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1604079779472">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604079779472" />
     <state x="1103" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1603437146381">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
