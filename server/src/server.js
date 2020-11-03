@@ -6,13 +6,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
+const mongoose = require('mongoose')
 
 /**** Configuration ****/
 const app = express(); 
-const MONGO_URL = process.env.MONGO_URL
-function createServer() {
-  const routes = require("./routes")();
+const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost/Questions'
 
+async function createServer() {
+  await mongoose.connect(MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+
+  const questionDB = require('./questionDB')(mongoose)
+
+  const routes = require("./routes")(questionDB);
+
+  //middelware
   app.use(bodyParser.json()); 
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(morgan('combined'));
